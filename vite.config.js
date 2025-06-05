@@ -5,15 +5,13 @@ import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
   return {
-    base: '/goit-js-hw-11/',
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
-    },
-    root: 'src',
+    base: '/goit-js-hw-11/',      
+    root: 'src',        
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/*.html'),
+        
+        input: glob.sync('*.html'), 
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
@@ -34,7 +32,7 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      outDir: '../dist',
+      outDir: '../dist',  
       emptyOutDir: true,
     },
     plugins: [
@@ -43,6 +41,3 @@ export default defineConfig(({ command }) => {
     ],
   };
 });
-
-
-
